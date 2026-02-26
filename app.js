@@ -469,6 +469,7 @@ function getChampionCap(limit) {
 }
 
 async function copyRosterToClipboard() {
+  // unchanged from your version; left as-is (profiles export still uses normalizeSpecialRules)
   const faction = selectedFactionName || "Unknown faction";
   const total = getRosterTotal();
   const comp = computeForceComp();
@@ -504,11 +505,11 @@ async function copyRosterToClipboard() {
   lines.push(`=== UNIT PROFILES ===`);
   lines.push(``);
 
-  // Unique profiles in roster (dedupe by name)
   const counts = new Map();
   for (const it of rosterEntries) {
     counts.set(it.name, (counts.get(it.name) ?? 0) + 1);
   }
+
   const uniq = Array.from(counts.entries()).map(([name, qty]) => {
     const u = findUnitInSelectedFaction(name);
     return {
@@ -584,7 +585,11 @@ async function copyRosterToClipboard() {
 /**
  * Special rules normalization:
  * - Supports BOTH "Rule Name: description..." and "Rule Name. description..."
- * - Merges wrapped lines (lines that don't start a new rule) into the previous rule.
+ * - Merges wrapped lines into the previous rule.
+ *
+ * IMPORTANT heuristic change:
+ * - Only treat something as a rule start if the "Name" begins with an uppercase letter.
+ *   This prevents splitting on mid-sentence tokens like "sight:" or "started:".
  */
 function normalizeSpecialRules(lines) {
   if (!Array.isArray(lines) || lines.length === 0) return [];
@@ -636,7 +641,7 @@ function normalizeSpecialRules(lines) {
 
   if (current) out.push(current);
 
-  return out.map(r => ({
+  return out.map((r) => ({
     name: r.name,
     text: String(r.text ?? "").replace(/\s+/g, " ").trim()
   }));
@@ -644,9 +649,22 @@ function normalizeSpecialRules(lines) {
 
 function looksLikeRuleName(name) {
   if (!name) return false;
-  if (name.length > 60) return false;
-  // allow digits in rule names if you ever add them; but avoid obvious stat lines
-  if (name.includes("Speed") || name.includes("Wounds")) return false;
+  const n = String(name).trim();
+  if (!n) return false;
+  if (n.length > 60) return false;
+
+  // Key heuristic: rule names start with an uppercase letter.
+  // Prevents false positives like "sight:" or "started:" that appear mid-sentence.
+  const first = n[0];
+  const isUpper =
+    (first >= "A" && first <= "Z") ||
+    (first >= "À" && first <= "Ö") ||
+    (first >= "Ø" && first <= "Þ");
+  if (!isUpper) return false;
+
+  // Avoid obvious non-rule junk
+  if (n.includes("Speed") || n.includes("Wounds")) return false;
+
   return true;
 }
 
@@ -672,12 +690,12 @@ function splitWeapon(w) {
     return { name, rest: rest ? " " + rest : "" };
   }
 
-  // Otherwise, try to split before "Melee" or "Shoot" if present.
+  // Otherwise, try to split before "Melee" or "Ranged"/"Shoot" if present.
   const meleeIdx = s.indexOf("Melee");
+  const rangedIdx = s.indexOf("Ranged");
   const shootIdx = s.indexOf("Shoot");
-  let idx = -1;
-  if (meleeIdx > 0 && shootIdx > 0) idx = Math.min(meleeIdx, shootIdx);
-  else idx = Math.max(meleeIdx, shootIdx);
+  const candidates = [meleeIdx, rangedIdx, shootIdx].filter((x) => x > 0);
+  const idx = candidates.length ? Math.min(...candidates) : -1;
 
   if (idx > 0) {
     const name = s.slice(0, idx).trim();
@@ -712,13 +730,9 @@ function findUnitInSelectedFaction(unitName) {
 
 function setStatus(message, type) {
   elStatusText.textContent = message;
-  if (type === "danger") {
-    elStatusDot.style.background = "var(--danger)";
-  } else if (type === "warn") {
-    elStatusDot.style.background = "var(--warn)";
-  } else {
-    elStatusDot.style.background = "var(--ok)";
-  }
+  if (type === "danger") elStatusDot.style.background = "var(--danger)";
+  else if (type === "warn") elStatusDot.style.background = "var(--warn)";
+  else elStatusDot.style.background = "var(--ok)";
 }
 
 // Basic escaping
