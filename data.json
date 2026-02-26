@@ -1,0 +1,1273 @@
+{
+  "factions": [
+    {
+      "name": "House Lionheart",
+      "units": [
+        {
+          "name": "Knight Captain",
+          "points": 57,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+3",
+              "Accuracy": "-",
+              "Deftness": "+1",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "7",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Ancestral Sword Melee. 1”, x5"
+            ],
+            "specialRules": [
+              "Strike True: When making attack rolls in a clash, on a critical hit, the target rolls one fewer",
+              "resistance die.",
+              "Coordinated Mobility: Interact: De(6): Until the end of the round, house Lionheart units",
+              "beginning a movement action within 5” of this unit may move through friendly models during",
+              "that move action as long as there is space for their base to end the move as normal."
+            ]
+          }
+        },
+        {
+          "name": "Guard Captain",
+          "points": 51,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "+2",
+              "Arcane": "-3"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Heavy Morningstar Melee. 1”, x5"
+            ],
+            "specialRules": [
+              "Heavy Blows. When making attack rolls in a clash, on a critical hit, all of the target’s",
+              "resistance rolls suffer a -1 penalty for that attack.",
+              "Defensive Coordination. Interact: De(6): Until the end of the round, all friendly,",
+              "non-mounted House Lionheart units get +1 to their dodge stat while within 5” of the Guard",
+              "Captain."
+            ]
+          }
+        },
+        {
+          "name": "Militia Archers",
+          "points": 72,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+0",
+              "Accuracy": "+1",
+              "Deftness": "+0",
+              "Arcane": "-3"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Longbow Ranged, 15”, x1",
+              "Hunting Knife Melee, 1”, x1"
+            ],
+            "specialRules": [
+              "Careful Aim. Interact: De(7). If the interact action is successful, this unit ignores cover",
+              "bonuses when making shoot actions until the end of the round."
+            ]
+          }
+        },
+        {
+          "name": "Militia Arbaliestiers",
+          "points": 47,
+          "type": "Special",
+          "profile": {
+            "tagline": "3 model special unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+0",
+              "Accuracy": "+1",
+              "Deftness": "+0",
+              "Arcane": "-3"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Arbalest Ranged, 20”, x1, P1",
+              "Hunting Knife Melee, 1”, x1"
+            ],
+            "specialRules": [
+              "Pavise. Interact: De(4) This unit is treated as in cover when targeted by shoot actions.",
+              "Pavise lasts until the next time the unit takes a move action."
+            ]
+          }
+        },
+        {
+          "name": "Militia Footmen",
+          "points": 57,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+1",
+              "Accuracy": "-",
+              "Deftness": "+0",
+              "Arcane": "-3"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Blades Melee, 1” x1"
+            ],
+            "specialRules": [
+              "Greedy Rifling. When this unit makes an interact action where success would result in",
+              "gaining VP points, it gets +1 to all dice in that action roll."
+            ]
+          }
+        },
+        {
+          "name": "Lord's Guard",
+          "points": 64,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "-3"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Stand and Defend. This unit gets +1 to its resistance rolls when defending in a clash."
+            ],
+            "specialRules": []
+          }
+        },
+        {
+          "name": "Lionheart Foot Knights",
+          "points": 51,
+          "type": "Special",
+          "profile": {
+            "tagline": "3 model special unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "+1",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Ornate Halberd Melee, 2”, x2, p1"
+            ],
+            "specialRules": [
+              "Heavy Blows. When making attack rolls in a clash, on a critical hit, all of the target’s",
+              "resistance rolls suffer a -1 penalty for that attack."
+            ]
+          }
+        },
+        {
+          "name": "Lionheart Knights",
+          "points": 74,
+          "type": "Special",
+          "profile": {
+            "tagline": "3 model special cavalry unit",
+            "speed": "8” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Lance Melee, 2”, x2, p1"
+            ],
+            "specialRules": [
+              "Devastating Charge. When making attacks as part of the free clash action granted by a",
+              "cavalry charge action, Lionheart Knights’ lances count as having P1."
+            ]
+          }
+        },
+        {
+          "name": "Silent Bishop",
+          "points": 43,
+          "type": "Special",
+          "profile": {
+            "tagline": "single model special unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+1",
+              "Accuracy": "-",
+              "Deftness": "+0",
+              "Arcane": "+2"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Sword Melee, 1”, x3"
+            ],
+            "specialRules": [
+              "Martyrdom. Arcane Power: Ar(6). Target friendly unit within 8” gains 1 weariness. It also",
+              "gains +1 to its total attacks in any clash actions taken until the end of the round. Martyrdom",
+              "may not be cast on the same unit more than once in a round.",
+              "Prayer of Purity. Arcane Power: Ar(6). Target friendly unit within 3” gains +4 to its next",
+              "Interact: Ar action."
+            ]
+          }
+        },
+        {
+          "name": "Knight-Crusader",
+          "points": 58,
+          "type": "Special",
+          "profile": {
+            "tagline": "single model special unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+3",
+              "Accuracy": "-",
+              "Deftness": "+2",
+              "Arcane": "+3"
+            },
+            "defense": {
+              "Dodge": "7",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Blessed Mace Melee, 1”, x5"
+            ],
+            "specialRules": [
+              "Shield Bash. Interact: De(6). Move target enemy unit within 1” of this unit directly away",
+              "from it 2”. It stops early if it contacts another model or impassable terrain. Treat this",
+              "movement as being made at cautious speed.",
+              "Holy Light. 1 Vitae. Until the end of the round, enemy units suffer -1 to hit this unit when",
+              "attacking it in clash actions (this does not apply if the Knight Crusader is the attacker)."
+            ]
+          }
+        },
+        {
+          "name": "Lion Mask Knight",
+          "points": 65,
+          "type": "Champion",
+          "profile": {
+            "tagline": "single model special unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+3",
+              "Accuracy": "-",
+              "Deftness": "+1",
+              "Arcane": "+2"
+            },
+            "defense": {
+              "Dodge": "7",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Greatmace Melee, 2”, x5, p1"
+            ],
+            "specialRules": [
+              "Regal Blood. 1 Vitae: Remove one wound from this unit. Regal Blood may only be used",
+              "once per game.",
+              "Leap of the Lion. 1 Vitae: Place this unit anywhere its base would normally fit within 5” of",
+              "its current location."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "N’Gorroth",
+      "units": [
+        {
+          "name": "Brine Hag",
+          "points": 80,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "5” / 5”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "-1",
+              "Accuracy": "+2",
+              "Deftness": "+2",
+              "Arcane": "+3"
+            },
+            "defense": {
+              "Dodge": "8",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Chilling Song Ranged. 10”, x3, P2",
+              "Chilling Touch Melee. 1”, x3"
+            ],
+            "specialRules": [
+              "Voice from the Depths: Arcane Power: Ar (6). Choose an enemy unit within 10” and line of",
+              "sight. No models in that unit may end a move action farther from the Brine Hag than they",
+              "started. Voice from the Depths lasts until the end of the target unit’s next activation. Only",
+              "one enemy unit may be under the effect of Voice from the Depths at a time. If a new unit",
+              "becomes affected by Voice from the Depths, the effect on any other enemy units expires",
+              "immediately.",
+              "Summon Leechworm Swarm: Arcane Power: Ar (6). Place one Leechworm Swarm",
+              "anywhere within 3” of this unit. This arcane power may not be used if there are already 3 or",
+              "more friendly Leechworm Swarms in play.",
+              "A Leechworm Swarm has Wounds 1, Dodge 6, and Resistance 2. All other stats are “-.” It",
+              "may never activate, take actions, or make attacks. It is a friendly Ngorroth unit and may be",
+              "attacked in both shoot and clash actions. Enemy units ending their activation within 2” of",
+              "any number of Leechworm Swarms immediately suffer 1 weariness. Then remove any",
+              "Leechworm Swarms within 2” of that unit from play."
+            ]
+          }
+        },
+        {
+          "name": "Abyssal Missionary",
+          "points": 65,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "5” / 5”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+0",
+              "Accuracy": "+1",
+              "Deftness": "+2",
+              "Arcane": "+2"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Staff of the Deeps Melee. 2”, x2",
+              "Witchlight Blast Ranged. 10”, x3"
+            ],
+            "specialRules": [
+              "Drag Down. Arcane Power: Ar(6). Choose an enemy unit within 8” and line of sight. Until",
+              "the end of its next activation, that unit may only choose careful speed when making move",
+              "actions."
+            ]
+          }
+        },
+        {
+          "name": "Depth Trawler",
+          "points": 55,
+          "type": "Special",
+          "profile": {
+            "tagline": "single model special unit",
+            "speed": "6” / 2”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "+0"
+            },
+            "defense": {
+              "Dodge": "5",
+              "Resistance": "4"
+            },
+            "weapons": [
+              "Great Anchor Melee. 2”, x4, P3"
+            ],
+            "specialRules": [
+              "Powered by Despair: This unit gains +1 P on its Great Anchor when attacking or defending",
+              "in a clash against a unit with 5 or more weariness."
+            ]
+          }
+        },
+        {
+          "name": "Fisherfolk",
+          "points": 64,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+0",
+              "Accuracy": "-",
+              "Deftness": "+1",
+              "Arcane": "+0"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Fishing Implements Melee. 1”, x1"
+            ],
+            "specialRules": [
+              "Despairing Aura. When a fisherfolk unit attacks or defends in a clash, if the enemy unit",
+              "would take no weariness or wounds, it takes 1 weariness instead."
+            ]
+          }
+        },
+        {
+          "name": "N’Gorroth Warriors",
+          "points": 72,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "+0",
+              "Deftness": "+1",
+              "Arcane": "+1"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Barbed Staves Melee. 2”, x1"
+            ],
+            "specialRules": [
+              "Spine Burst. 1 Vitae: This unit may make a free shoot action with the weapon profile",
+              "[Ranged. 5” x2]. Spined Burst may only be used once per activation."
+            ]
+          }
+        },
+        {
+          "name": "Shore Dredgers",
+          "points": 39,
+          "type": "Core",
+          "profile": {
+            "tagline": "3 model core unit",
+            "speed": "5” / 2”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+1",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "0"
+            },
+            "defense": {
+              "Dodge": "5",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Rusted Weapons Melee. 1”, x2, P1"
+            ],
+            "specialRules": [
+              "Seize Victim: When beginning an action engaged by this unit, enemy units suffer -1” to their",
+              "cautious speed for the duration of that action."
+            ]
+          }
+        },
+        {
+          "name": "Fish Wives",
+          "points": 66,
+          "type": "Special",
+          "profile": {
+            "tagline": "5 model special unit",
+            "speed": "5” / 3”",
+            "wounds": "1",
+            "stats": {
+              "Fight": "+0",
+              "Accuracy": "-",
+              "Deftness": "+1",
+              "Arcane": "0"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Gutting Blades Melee. 1”, x1, P1"
+            ],
+            "specialRules": [
+              "Lay Eggs: 1 Vitae: Place one Clutch of Eggs model anywhere within 3” of a model in this",
+              "unit. This unit may not Lay Eggs if its controlling player already has two or more Clutches of",
+              "Eggs on the table.",
+              "A Clutch of Eggs has Wounds 1, Dodge 4, and Resistance 2. All other stats are “-.” It may",
+              "never activate, take actions, or make attacks. It is a friendly Ngorroth unit and may be",
+              "attacked in both shoot and clash actions. Enemy units currently within 2” of a Clutch of Eggs",
+              "may only choose cautious speed when making a move action."
+            ]
+          }
+        },
+        {
+          "name": "Pontic Giant",
+          "points": 76,
+          "type": "Champion",
+          "profile": {
+            "tagline": "single model champion unit",
+            "speed": "5” / 3”",
+            "wounds": "5",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-3",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "5",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Massive Crusher Melee. 2”, x5, P3"
+            ],
+            "specialRules": [
+              "Battery. Special Action. Choose an enemy model of 3 wounds or less within 2”. Roll a",
+              "single d10, adding the Pontic Giant’s Fight. If the result is equal to or higher than the chosen",
+              "model’s Dodge, this unit's player may move that model up to 3”. It may move through other",
+              "models as long as there’s room for its base at the end of its move. It treats this move as",
+              "though it were using cautious speed. It does not have to end the move in unit coherency."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Seraphic Cults",
+      "units": [
+        {
+          "name": "Oculus Consul",
+          "points": 52,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+0",
+              "Accuracy": "+2",
+              "Deftness": "-1",
+              "Arcane": "+2"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Aged Fists Melee. 1”, x2",
+              "Myriad Eyebeams Ranged. 5” x5",
+              "Gaze of Uncanny Perception. Arcane Power: Ar(6). Enemy units take a -1 penalty to",
+              "attack rolls while within 8” and line of sight of the Oculus Consul until the end of the round.",
+              "Soul-stare. Arcane Power: Ar(6). Choose target enemy unit within 5”. That unit gains 1",
+              "weariness."
+            ],
+            "specialRules": []
+          }
+        },
+        {
+          "name": "Winged Prophet",
+          "points": 72,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "6” / 6”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "+2"
+            },
+            "defense": {
+              "Dodge": "8",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Twin Blades Melee. 1”, x5"
+            ],
+            "specialRules": [
+              "Light Unseen. Friendly units gain +1 accuracy and ignore cover and target engaged",
+              "penalties to ranged attacks when targeting a unit engaged by this unit."
+            ]
+          }
+        },
+        {
+          "name": "Seraphic Cultists",
+          "points": 60,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+1",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "8",
+              "Resistance": "1"
+            },
+            "weapons": [
+              "Ritual Weapons Melee. 1”, x1"
+            ],
+            "specialRules": [
+              "Fate-Guided Weapons: When making attack rolls in a clash, on a critical hit, roll 1 additional",
+              "attack die and add it to the result for that attack."
+            ]
+          }
+        },
+        {
+          "name": "Oculus Vigilants",
+          "points": 39,
+          "type": "Core",
+          "profile": {
+            "tagline": "3 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "+0"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Heavy Blades Melee. 1”, x2 P1"
+            ],
+            "specialRules": [
+              "Divine Bulwark: 1 Vitae: Until the beginning of their next activation, the Oculus Vigilants",
+              "gain 1 Resistance. Divine Bulwark may not be used if the Oculus Vigilants are engaged."
+            ]
+          }
+        },
+        {
+          "name": "Ascended Cultist",
+          "points": 56,
+          "type": "Special",
+          "profile": {
+            "tagline": "single model special unit",
+            "speed": "5” / 5”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "8",
+              "Resistance": "1"
+            },
+            "weapons": [
+              "Ritual Weapons Melee. 1”, x4"
+            ],
+            "specialRules": [
+              "Fate-Guided Weapons: When making attack rolls in a clash, on a critical hit, roll 1 additional",
+              "attack die and add it to the result for that attack.",
+              "Gaze of Debilitating Truth: 1 Vitae. Until the end of the round, enemy units within 8” and",
+              "line of sight of this unit get -2 to interact actions."
+            ]
+          }
+        },
+        {
+          "name": "Seraphic Guardian",
+          "points": 51,
+          "type": "Special",
+          "profile": {
+            "tagline": "Single model special unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "+1"
+            },
+            "defense": {
+              "Dodge": "7",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Divine Crusher Melee. 1”, x4 P1"
+            ],
+            "specialRules": [
+              "Gaze of Yesod: 1 Vitae: Choose a target unit within 10”. It is dealt damage as if it were hit",
+              "by a shoot action with 3 successful hits. The target may make a resistance roll. Gaze of",
+              "Yesod may only be used once per activation."
+            ]
+          }
+        },
+        {
+          "name": "Cherubs",
+          "points": 77,
+          "type": "Special",
+          "profile": {
+            "tagline": "3 model special unit",
+            "speed": "6” / 6”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "-2",
+              "Accuracy": "+1",
+              "Deftness": "-3",
+              "Arcane": "+0"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Eyebeam Ranged. 10”, x2",
+              "Buffeting Wings Melee. 1”, x1"
+            ],
+            "specialRules": []
+          }
+        },
+        {
+          "name": "Seraphim",
+          "points": 82,
+          "type": "Champion",
+          "profile": {
+            "tagline": "single model champion unit",
+            "speed": "5” / 3”",
+            "wounds": "5",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "+2",
+              "Deftness": "-3",
+              "Arcane": "+1"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "1"
+            },
+            "weapons": [
+              "Dazzling Eyebeams Ranged. 5” x7",
+              "Pounding Fists Melee. 1”, x4"
+            ],
+            "specialRules": [
+              "Gaze of Thousands. This unit may make one free shoot action during each of its",
+              "activations.",
+              "Always Watching. Ranged attacks against this unit take a -2 penalty."
+            ]
+          }
+        },
+        {
+          "name": "Oculus Apostle",
+          "points": 51,
+          "type": "Special",
+          "profile": {
+            "tagline": "single model special unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "-2",
+              "Accuracy": "+1",
+              "Deftness": "+2",
+              "Arcane": "+2"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "1"
+            },
+            "weapons": [
+              "Myriad Eyebeams Ranged. 5” x5",
+              "Feeble Fists Melee. 1”, x2"
+            ],
+            "specialRules": [
+              "Blessed Visions. Arcane Power: Ar(6). While within 8” and line of sight of the Oculus",
+              "Apostle, friendly units get +2 to any Interact: De actions. Blessed Visions lasts until the end",
+              "of the round.",
+              "The Guided Path. Arcane Power: Ar(6). Target friendly unit gets +2 to its cautious speed",
+              "until the end of its next activation. If successfully cast, The Guided Path may not be cast",
+              "again this activation."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Church of the Acarid",
+      "units": [
+        {
+          "name": "Infested Cleric",
+          "points": 68,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "5” / 5”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "+2",
+              "Deftness": "-1",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Winged Stinger Ranged. 10”, x3",
+              "Rows of Teeth Melee. 1”, x4, P1"
+            ],
+            "specialRules": [
+              "Larval Injection. At the end of any clash in which this unit participates, the enemy unit it",
+              "clashed with is infected. Place a parasite token on that unit.",
+              "Distant Injection. At the end of any shoot action in which an enemy unit took weariness",
+              "and/or wounds from the Winged Stinger, place a parasite token on that unit."
+            ]
+          }
+        },
+        {
+          "name": "Infested Templar",
+          "points": 49,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "-2"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Pock-Marked Axe Melee. 1”, x4, P2"
+            ],
+            "specialRules": [
+              "Pheromonic Stimulation. This unit gains +1 Fi and +1 total attack during any clash with an",
+              "infested unit.",
+              "Chittering Frenzy. 1 Vitae. Until the end of the round, friendly units within 5” get +1 pierce",
+              "when attacking infested enemy units."
+            ]
+          }
+        },
+        {
+          "name": "Infested Pilgrims",
+          "points": 58,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+0",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "-2"
+            },
+            "defense": {
+              "Dodge": "5",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Grasping Tendrils Melee. 1”"
+            ],
+            "specialRules": [
+              "Larval Injection. At the end of any clash in which this unit participates, the enemy unit it",
+              "clashed with is infected. Place a parasite token on that unit."
+            ]
+          }
+        },
+        {
+          "name": "Infested Warriors",
+          "points": 62,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+1",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "-2"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Rotting Weapons Melee. 1”"
+            ],
+            "specialRules": [
+              "Pheromonic Stimulation. This unit gains +1 Fi and +1 total attack during any clash with an",
+              "infested unit."
+            ]
+          }
+        },
+        {
+          "name": "Stinger Pilgrims",
+          "points": 61,
+          "type": "Special",
+          "profile": {
+            "tagline": "3 model special cavalry unit",
+            "speed": "8” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+0",
+              "Accuracy": "-",
+              "Deftness": "-1",
+              "Arcane": "-2"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Repurposed Tools Melee. 1”, x2, P1"
+            ],
+            "specialRules": [
+              "Larval Injection. At the end of any clash in which this unit participates, the enemy unit it",
+              "clashed with is infected. Place a parasite token on that unit."
+            ]
+          }
+        },
+        {
+          "name": "Infested Questors",
+          "points": 61,
+          "type": "Special",
+          "profile": {
+            "tagline": "3 model special unit",
+            "speed": "5” / 5”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "0",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Vicious Halberds Melee. 2”, x2, P1"
+            ],
+            "specialRules": [
+              "Pheromonic Stimulation. This unit gains +1 Fi and +1 total attack during any clash with an",
+              "infested unit."
+            ]
+          }
+        },
+        {
+          "name": "Brood Mare",
+          "points": 43,
+          "type": "Special",
+          "profile": {
+            "tagline": "single model special unit",
+            "speed": "5” / 5”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "-1",
+              "Accuracy": "-",
+              "Deftness": "-3",
+              "Arcane": "-3"
+            },
+            "defense": {
+              "Dodge": "5",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Swarming Bites Melee. 1”, x3"
+            ],
+            "specialRules": [
+              "Frenzied Breeding. 1 Vitae: Choose target infected enemy unit within 8”, then choose a",
+              "non-infected enemy unit within 5” of that unit. Place a parasite token on the non-infected",
+              "unit.",
+              "Soothing Bond. 1 Vitae: Until the end of the round, infected enemy units suffer -1 to attack",
+              "rolls while within 5” of this unit."
+            ]
+          }
+        },
+        {
+          "name": "Infested Moose",
+          "points": 84,
+          "type": "Champion",
+          "profile": {
+            "tagline": "single model champion cavalry unit",
+            "speed": "8” / 3”",
+            "wounds": "5",
+            "stats": {
+              "Fight": "+1",
+              "Accuracy": "-",
+              "Deftness": "-3",
+              "Arcane": "-3"
+            },
+            "defense": {
+              "Dodge": "5",
+              "Resistance": "3"
+            },
+            "weapons": [
+              "Enraged Trample Melee. 1”, x7"
+            ],
+            "specialRules": [
+              "Stirring the Swarm. When this unit makes a cavalry charge, after it moves but before it",
+              "does its free clash action, place a parasite token on each enemy unit within 1” of this unit."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Calden Keep",
+      "units": [
+        {
+          "name": "Caldish Lord",
+          "points": 51,
+          "type": "Leader",
+          "profile": {
+            "tagline": "single model leader unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+3",
+              "Accuracy": "-",
+              "Deftness": "+2",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "7",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Great Spiked Blade Melee. 2”, x5, P1"
+            ],
+            "specialRules": [
+              "Scent of Weakness: Interact De(6). Choose target enemy unit with 2 or more weariness",
+              "within 8”. Friendly units get +1 P when attacking that unit until the end of the round."
+            ]
+          }
+        },
+        {
+          "name": "Revenant Footmen",
+          "points": 59,
+          "type": "Core",
+          "profile": {
+            "tagline": "5 model core unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+1",
+              "Accuracy": "-",
+              "Deftness": "+0",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Rusted Weapons Melee. 1”, x1"
+            ],
+            "specialRules": [
+              "Scent of Life: This unit gets +1 total attack when clashing with a unit that has 1 or more",
+              "wound tokens on it."
+            ]
+          }
+        },
+        {
+          "name": "Wolfsguard",
+          "points": 62,
+          "type": "Core",
+          "profile": {
+            "tagline": "3 model model core unit",
+            "speed": "6” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "+2",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "7",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Ancient Blades Melee. 2”, x2"
+            ],
+            "specialRules": [
+              "Snarling Aggression: When attacking as part of a strive action, this unit gets +2 total",
+              "attacks."
+            ]
+          }
+        },
+        {
+          "name": "Revenant Hounds",
+          "points": 39,
+          "type": "Core",
+          "profile": {
+            "tagline": "3 model model core unit",
+            "speed": "7” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "-3",
+              "Arcane": "-3"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Gnashing Teeth Melee. 1”, x2"
+            ],
+            "specialRules": [
+              "Scent of Life: This unit gets +1 total attack when clashing with a unit that has 1 or more",
+              "wound tokens on it."
+            ]
+          }
+        },
+        {
+          "name": "Wolfsguard Cavalry",
+          "points": 77,
+          "type": "Special",
+          "profile": {
+            "tagline": "single model special cavalry unit",
+            "speed": "8” / 4”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "+2",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "7",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Ancient Blades Melee. 1”, x2"
+            ],
+            "specialRules": [
+              "Snarling Aggression: When attacking as part of a strive action, this unit gets +2 total",
+              "attacks."
+            ]
+          }
+        },
+        {
+          "name": "Revenant Hulks",
+          "points": 55,
+          "type": "Special",
+          "profile": {
+            "tagline": "3 model special unit",
+            "speed": "5” / 3”",
+            "wounds": "-",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "+0",
+              "Arcane": "+0"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Crushing Hammers Melee. 1”, x2, P1"
+            ],
+            "specialRules": [
+              "Necrotic Energies: 1 Vitae: Choose a target enemy unit within 8” that has 2 or more",
+              "weariness. This unit may make a free shoot action against that unit with the weapon profile",
+              "[Ranged. 10”, x2, P2]."
+            ]
+          }
+        },
+        {
+          "name": "Wolfsguard Piercers",
+          "points": 50,
+          "type": "Special",
+          "profile": {
+            "tagline": "3 model special unit",
+            "speed": "5” / 3”",
+            "wounds": "1",
+            "stats": {
+              "Fight": "-1",
+              "Accuracy": "+1",
+              "Deftness": "+1",
+              "Arcane": "-1"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "2"
+            },
+            "weapons": [
+              "Terrorbound Bow Ranged. 10”, x1, P1",
+              "Heavy Stock Melee. 1”, x1"
+            ],
+            "specialRules": [
+              "Snarling Aggression: When attacking as part of a strive action, this unit gets +2 total",
+              "attacks."
+            ]
+          }
+        },
+        {
+          "name": "Wolfsguard Hulk",
+          "points": 65,
+          "type": "Special",
+          "profile": {
+            "tagline": "single model special unit",
+            "speed": "5” / 3”",
+            "wounds": "3",
+            "stats": {
+              "Fight": "+2",
+              "Accuracy": "-",
+              "Deftness": "+2",
+              "Arcane": "+0"
+            },
+            "defense": {
+              "Dodge": "6",
+              "Resistance": "4"
+            },
+            "weapons": [
+              "Man-sized Axe Melee. 2”, x4, P3"
+            ],
+            "specialRules": [
+              "Creeping Whelp: When making interact actions, treat this unit as 4” closer to the interact",
+              "target than it actually is."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
