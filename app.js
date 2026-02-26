@@ -54,7 +54,6 @@ async function init() {
         if (u.type === "Elite") u.type = "Champion";
       }
     }
-
   } catch (err) {
     elUnitHelp.textContent =
       "Could not load data.json. This version requires running a local server or hosting it (e.g., GitHub Pages).";
@@ -118,6 +117,7 @@ function bindEvents() {
     clearRoster();
     renderRoster();
     renderUnits();
+    renderProfiles();
   });
 }
 
@@ -184,7 +184,6 @@ function renderUnits() {
   });
 }
 
-
 function renderProfiles() {
   if (!elProfileList) return;
 
@@ -247,6 +246,8 @@ function renderProfiles() {
         ["Resistance", def.Resistance]
       ].filter(([, v]) => v !== undefined && v !== null && String(v).length);
 
+      const normalizedRules = normalizeSpecialRules(rules);
+
       return `
         <div class="profileCard">
           <div class="profileTop">
@@ -272,11 +273,11 @@ function renderProfiles() {
             </div>
           ` : ``}
 
-          ${rules.length ? `
+          ${normalizedRules.length ? `
             <div class="profileSection">
               <div class="profileSectionTitle">Special Rules</div>
               <ul class="profileList">
-                ${normalizeSpecialRules(rules).map(r => `<li><strong>${escapeHtml(r.name)}:</strong> ${escapeHtml(r.text)}</li>`).join("")}
+                ${normalizedRules.map(r => `<li><strong>${escapeHtml(r.name)}:</strong> ${escapeHtml(r.text)}</li>`).join("")}
               </ul>
             </div>
           ` : ``}
@@ -285,7 +286,6 @@ function renderProfiles() {
     })
     .join("");
 }
-
 
 function renderRoster() {
   // Order roster entries by type (Leader -> Core -> Special -> Champion), then by add order within type.
@@ -381,7 +381,6 @@ function renderRoster() {
   }
 
   renderProfiles();
-
 }
 
 function renderError(err) {
@@ -408,7 +407,6 @@ function addUnit(unitName) {
     const maxChampions = getChampionCap(pointsLimit);
     const comp = computeForceComp();
     if (comp.champions >= maxChampions) {
-      // no-op; renderUnits already disables the button, but this is extra safety
       setStatus(`Champion cap reached (${maxChampions} max at ${pointsLimit} pts).`, "warn");
       return;
     }
@@ -502,7 +500,6 @@ async function copyRosterToClipboard() {
     });
   }
 
-
   lines.push(``);
   lines.push(`=== UNIT PROFILES ===`);
   lines.push(``);
@@ -528,50 +525,47 @@ async function copyRosterToClipboard() {
     return a.name.localeCompare(b.name);
   });
 
-  if (uniq.length === 0) {
-    lines.push(`(No units)`);
-  } else {
-    for (const it of uniq) {
-      lines.push(`${it.name} — ${it.points} pts — ${it.type} (Qty ${it.qty})`);
-      const p = it.profile;
-      if (!p) {
-        lines.push(`  (No profile data)`);
-        lines.push(``);
-        continue;
-      }
-      if (p.tagline) lines.push(`  ${p.tagline}`);
-      if (p.speed || p.wounds) {
-        const parts = [];
-        if (p.speed) parts.push(`Speed: ${p.speed}`);
-        if (p.wounds) parts.push(`Wounds: ${p.wounds}`);
-        lines.push(`  ${parts.join(" · ")}`);
-      }
-      const s = p.stats ?? {};
-      const d = p.defense ?? {};
-      const statLine = [];
-      if (s.Fight) statLine.push(`Fi ${s.Fight}`);
-      if (s.Accuracy) statLine.push(`Ac ${s.Accuracy}`);
-      if (s.Deftness) statLine.push(`De ${s.Deftness}`);
-      if (s.Arcane) statLine.push(`Ar ${s.Arcane}`);
-      if (d.Dodge) statLine.push(`Do ${d.Dodge}`);
-      if (d.Resistance) statLine.push(`Re ${d.Resistance}`);
-      if (statLine.length) lines.push(`  ${statLine.join(" · ")}`);
+  for (const it of uniq) {
+    lines.push(`${it.name} — ${it.points} pts — ${it.type} (Qty ${it.qty})`);
+    const p = it.profile;
+    if (!p) {
+      lines.push(`  (No profile data)`);
+      lines.push(``);
+      continue;
+    }
+    if (p.tagline) lines.push(`  ${p.tagline}`);
+    if (p.speed || p.wounds) {
+      const parts = [];
+      if (p.speed) parts.push(`Speed: ${p.speed}`);
+      if (p.wounds) parts.push(`Wounds: ${p.wounds}`);
+      lines.push(`  ${parts.join(" · ")}`);
+    }
+    const s = p.stats ?? {};
+    const d = p.defense ?? {};
+    const statLine = [];
+    if (s.Fight) statLine.push(`Fi ${s.Fight}`);
+    if (s.Accuracy) statLine.push(`Ac ${s.Accuracy}`);
+    if (s.Deftness) statLine.push(`De ${s.Deftness}`);
+    if (s.Arcane) statLine.push(`Ar ${s.Arcane}`);
+    if (d.Dodge) statLine.push(`Do ${d.Dodge}`);
+    if (d.Resistance) statLine.push(`Re ${d.Resistance}`);
+    if (statLine.length) lines.push(`  ${statLine.join(" · ")}`);
 
-      if (Array.isArray(p.weapons) && p.weapons.length) {
-        lines.push(`  Weapons:`);
-        for (const w of p.weapons) lines.push(`    - ${formatWeaponText(w)}`);
-      }
-      if (Array.isArray(p.specialRules) && p.specialRules.length) {
+    if (Array.isArray(p.weapons) && p.weapons.length) {
+      lines.push(`  Weapons:`);
+      for (const w of p.weapons) lines.push(`    - ${formatWeaponText(w)}`);
+    }
+    if (Array.isArray(p.specialRules) && p.specialRules.length) {
+      const nr = normalizeSpecialRules(p.specialRules);
+      if (nr.length) {
         lines.push(`  Special Rules:`);
-        const nr = normalizeSpecialRules(p.specialRules);
         for (const r of nr) lines.push(`    - ${r.name}: ${r.text}`);
       }
-      lines.push(``);
     }
+    lines.push(``);
   }
 
   const text = lines.join("\n");
-
 
   try {
     await navigator.clipboard.writeText(text);
@@ -587,22 +581,35 @@ async function copyRosterToClipboard() {
   }
 }
 
-
+/**
+ * Special rules normalization:
+ * - Supports BOTH "Rule Name: description..." and "Rule Name. description..."
+ * - Merges wrapped lines (lines that don't start a new rule) into the previous rule.
+ */
 function normalizeSpecialRules(lines) {
-  // Input may be either already-normalized rule strings or PDF-wrapped line chunks.
-  // Rules always start with: "Rule Name: description..."
   if (!Array.isArray(lines) || lines.length === 0) return [];
 
-  const isRuleStart = (s) => {
-    if (!s) return false;
-    const idx = s.indexOf(":");
-    if (idx <= 0) return false;
-    const name = s.slice(0, idx).trim();
-    if (!name) return false;
-    // Heuristic: rule names are short-ish and usually don't contain digits.
-    if (name.length > 60) return false;
-    if (/[0-9]/.test(name)) return false;
-    return true;
+  const parseRuleStart = (s) => {
+    const line = String(s ?? "").trim();
+    if (!line) return null;
+
+    // Try "Name: text"
+    const colonIdx = line.indexOf(":");
+    if (colonIdx > 0) {
+      const name = line.slice(0, colonIdx).trim();
+      const text = line.slice(colonIdx + 1).trim();
+      if (looksLikeRuleName(name)) return { name, text };
+    }
+
+    // Try "Name. text"
+    const dotIdx = line.indexOf(". ");
+    if (dotIdx > 0) {
+      const name = line.slice(0, dotIdx).trim();
+      const text = line.slice(dotIdx + 2).trim();
+      if (looksLikeRuleName(name)) return { name, text };
+    }
+
+    return null;
   };
 
   const out = [];
@@ -612,33 +619,35 @@ function normalizeSpecialRules(lines) {
     const line = String(raw ?? "").trim();
     if (!line) continue;
 
-    if (isRuleStart(line)) {
-      // flush previous
+    const start = parseRuleStart(line);
+    if (start) {
       if (current) out.push(current);
+      current = start;
+      continue;
+    }
 
-      const idx = line.indexOf(":");
-      current = {
-        name: line.slice(0, idx).trim(),
-        text: line.slice(idx + 1).trim()
-      };
+    // continuation line
+    if (!current) {
+      current = { name: "Rule", text: line };
     } else {
-      // continuation line
-      if (!current) {
-        // If data starts with a continuation line, treat as unnamed rule text.
-        current = { name: "Rule", text: line };
-      } else {
-        current.text = (current.text ? current.text + " " : "") + line;
-      }
+      current.text = (current.text ? current.text + " " : "") + line;
     }
   }
 
   if (current) out.push(current);
 
-  // Final cleanup: collapse repeated spaces
   return out.map(r => ({
     name: r.name,
     text: String(r.text ?? "").replace(/\s+/g, " ").trim()
   }));
+}
+
+function looksLikeRuleName(name) {
+  if (!name) return false;
+  if (name.length > 60) return false;
+  // allow digits in rule names if you ever add them; but avoid obvious stat lines
+  if (name.includes("Speed") || name.includes("Wounds")) return false;
+  return true;
 }
 
 function formatWeaponHtml(w) {
@@ -676,9 +685,9 @@ function splitWeapon(w) {
     return { name, rest: rest ? " " + rest : "" };
   }
 
-  // Fallback: bold the first word group up to first period.
+  // Fallback: bold the first segment up to first period.
   const dotIdx = s.indexOf(".");
-  if (dotIdx > 0 && dotIdx < 40) {
+  if (dotIdx > 0 && dotIdx < 60) {
     const name = s.slice(0, dotIdx).trim();
     const rest = s.slice(dotIdx).trim();
     return { name, rest: rest ? " " + rest : "" };
@@ -686,6 +695,7 @@ function splitWeapon(w) {
 
   return { name: s, rest: "" };
 }
+
 /**
  * Helpers
  */
