@@ -267,7 +267,7 @@ function renderProfiles() {
             <div class="profileSection">
               <div class="profileSectionTitle">Weapons</div>
               <ul class="profileList">
-                ${weapons.map(w => `<li>${escapeHtml(w)}</li>`).join("")}
+                ${weapons.map(w => `<li>${formatWeaponHtml(w)}</li>`).join("")}
               </ul>
             </div>
           ` : ``}
@@ -276,7 +276,7 @@ function renderProfiles() {
             <div class="profileSection">
               <div class="profileSectionTitle">Special Rules</div>
               <ul class="profileList">
-                ${rules.map(r => `<li>${escapeHtml(r)}</li>`).join("")}
+                ${normalizeSpecialRules(rules).map(r => `<li><strong>${escapeHtml(r.name)}:</strong> ${escapeHtml(r.text)}</li>`).join("")}
               </ul>
             </div>
           ` : ``}
@@ -559,11 +559,12 @@ async function copyRosterToClipboard() {
 
       if (Array.isArray(p.weapons) && p.weapons.length) {
         lines.push(`  Weapons:`);
-        for (const w of p.weapons) lines.push(`    - ${w}`);
+        for (const w of p.weapons) lines.push(`    - ${formatWeaponText(w)}`);
       }
       if (Array.isArray(p.specialRules) && p.specialRules.length) {
         lines.push(`  Special Rules:`);
-        for (const r of p.specialRules) lines.push(`    - ${r}`);
+        const nr = normalizeSpecialRules(p.specialRules);
+        for (const r of nr) lines.push(`    - ${r.name}: ${r.text}`);
       }
       lines.push(``);
     }
@@ -586,6 +587,105 @@ async function copyRosterToClipboard() {
   }
 }
 
+
+function normalizeSpecialRules(lines) {
+  // Input may be either already-normalized rule strings or PDF-wrapped line chunks.
+  // Rules always start with: "Rule Name: description..."
+  if (!Array.isArray(lines) || lines.length === 0) return [];
+
+  const isRuleStart = (s) => {
+    if (!s) return false;
+    const idx = s.indexOf(":");
+    if (idx <= 0) return false;
+    const name = s.slice(0, idx).trim();
+    if (!name) return false;
+    // Heuristic: rule names are short-ish and usually don't contain digits.
+    if (name.length > 60) return false;
+    if (/[0-9]/.test(name)) return false;
+    return true;
+  };
+
+  const out = [];
+  let current = null;
+
+  for (const raw of lines) {
+    const line = String(raw ?? "").trim();
+    if (!line) continue;
+
+    if (isRuleStart(line)) {
+      // flush previous
+      if (current) out.push(current);
+
+      const idx = line.indexOf(":");
+      current = {
+        name: line.slice(0, idx).trim(),
+        text: line.slice(idx + 1).trim()
+      };
+    } else {
+      // continuation line
+      if (!current) {
+        // If data starts with a continuation line, treat as unnamed rule text.
+        current = { name: "Rule", text: line };
+      } else {
+        current.text = (current.text ? current.text + " " : "") + line;
+      }
+    }
+  }
+
+  if (current) out.push(current);
+
+  // Final cleanup: collapse repeated spaces
+  return out.map(r => ({
+    name: r.name,
+    text: String(r.text ?? "").replace(/\s+/g, " ").trim()
+  }));
+}
+
+function formatWeaponHtml(w) {
+  const parts = splitWeapon(w);
+  return `<strong>${escapeHtml(parts.name)}</strong>${escapeHtml(parts.rest)}`;
+}
+
+function formatWeaponText(w) {
+  const parts = splitWeapon(w);
+  return `${parts.name}${parts.rest}`;
+}
+
+function splitWeapon(w) {
+  const s = String(w ?? "").trim();
+  if (!s) return { name: "", rest: "" };
+
+  // Preferred delimiter
+  const dashIdx = s.indexOf("—");
+  if (dashIdx > 0) {
+    const name = s.slice(0, dashIdx).trim();
+    const rest = s.slice(dashIdx).trim(); // includes the dash
+    return { name, rest: rest ? " " + rest : "" };
+  }
+
+  // Otherwise, try to split before "Melee" or "Shoot" if present.
+  const meleeIdx = s.indexOf("Melee");
+  const shootIdx = s.indexOf("Shoot");
+  let idx = -1;
+  if (meleeIdx > 0 && shootIdx > 0) idx = Math.min(meleeIdx, shootIdx);
+  else idx = Math.max(meleeIdx, shootIdx);
+
+  if (idx > 0) {
+    const name = s.slice(0, idx).trim();
+    const rest = s.slice(idx).trim();
+    return { name, rest: rest ? " " + rest : "" };
+  }
+
+  // Fallback: bold the first word group up to first period.
+  const dotIdx = s.indexOf(".");
+  if (dotIdx > 0 && dotIdx < 40) {
+    const name = s.slice(0, dotIdx).trim();
+    const rest = s.slice(dotIdx).trim();
+    return { name, rest: rest ? " " + rest : "" };
+  }
+
+  return { name: s, rest: "" };
+}
 /**
  * Helpers
  */
