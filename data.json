@@ -546,7 +546,7 @@
         },
         {
           "name": "Winged Prophet",
-          "points": 72,
+          "points": 66,
           "type": "Leader",
           "profile": {
             "tagline": "single model leader unit",
@@ -677,7 +677,7 @@
         },
         {
           "name": "Cherubs",
-          "points": 77,
+          "points": 71,
           "type": "Special",
           "profile": {
             "tagline": "3 model special unit",
