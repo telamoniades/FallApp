@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Fall: A Game of Endings — Quick Reference</title>
+  <link href="./style.css" rel="stylesheet"/>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__title">
+      <h1>Fall: A Game of Endings</h1>
+      <p class="subtitle">Quick Reference Charts</p>
+    </div>
+    <div class="header__controls">
+      <a class="btn btn--ghost headerLink" href="./index.html">Back to List Builder</a>
+    </div>
+  </header>
+
+  <main class="layout layout--single">
+
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Activation Tests</h2>
+        <p class="muted">When a unit with weariness is selected to activate, roll a d10 and consult the table (or spend Vitae to bypass).</p>
+      </div>
+
+      <div class="panel__body">
+        <div class="tableWrap">
+          <table class="refTable">
+            <thead>
+              <tr>
+                <th>Weariness on unit</th>
+                <th>D10 needed</th>
+                <th>Vitae to bypass</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>No test needed</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>1–2</td>
+                <td>4+</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>3–4</td>
+                <td>6+</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>5–6+</td>
+                <td>8+</td>
+                <td>3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="muted refNote">Note: For each weariness beyond 6, the activation test thresholds and bypass costs do not change, but the Vitae cost to attempt to Strive increases by 1 per weariness beyond 6.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Strive</h2>
+        <p class="muted">After a unit resolves its two initial actions, it may spend Vitae to attempt additional actions.</p>
+      </div>
+
+      <div class="panel__body">
+        <div class="tableWrap">
+          <table class="refTable">
+            <thead>
+              <tr>
+                <th>Strive attempt (this activation)</th>
+                <th>Succeeds on</th>
+                <th>Failure penalty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1st</td>
+                <td>4+</td>
+                <td>1 weariness; activation ends</td>
+              </tr>
+              <tr>
+                <td>2nd</td>
+                <td>6+</td>
+                <td>2 weariness; activation ends</td>
+              </tr>
+              <tr>
+                <td>3rd</td>
+                <td>8+</td>
+                <td>3 weariness; activation ends</td>
+              </tr>
+              <tr>
+                <td>4th+</td>
+                <td>8+</td>
+                <td>+1 additional weariness per extra attempt; activation ends</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Shooting Attack Roll Modifiers</h2>
+      </div>
+      <div class="panel__body">
+        <div class="tableWrap">
+          <table class="refTable">
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th>Modifier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>All available target models are in cover</td>
+                <td>-2</td>
+              </tr>
+              <tr>
+                <td>Target is engaged</td>
+                <td>-2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Shoot Damage Results</h2>
+      </div>
+      <div class="panel__body">
+        <div class="tableWrap">
+          <table class="refTable">
+            <thead>
+              <tr>
+                <th>Final damage</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>No effect</td></tr>
+              <tr><td>1–2</td><td>1 Weariness</td></tr>
+              <tr><td>3–4</td><td>1 Weariness; 1 Wound</td></tr>
+              <tr><td>5–6</td><td>1 Weariness; 2 Wounds</td></tr>
+              <tr><td>7–8</td><td>2 Weariness; 2 Wounds</td></tr>
+              <tr><td>9+</td><td>2 Weariness; 3 Wounds</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Clash Attack Roll Modifiers</h2>
+      </div>
+      <div class="panel__body">
+        <div class="tableWrap">
+          <table class="refTable">
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th>Modifier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The unit has already made at least one clash action this activation that successfully applied damage or weariness to the target unit</td>
+                <td>+1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <h2>Clash Damage Results</h2>
+      </div>
+      <div class="panel__body">
+        <div class="tableWrap">
+          <table class="refTable">
+            <thead>
+              <tr>
+                <th>Final damage</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>No effect</td></tr>
+              <tr><td>1</td><td>1 Weariness</td></tr>
+              <tr><td>2</td><td>1 Weariness; 1 Wound</td></tr>
+              <tr><td>3</td><td>2 Weariness; 1 Wound</td></tr>
+              <tr><td>4</td><td>2 Weariness; 2 Wounds</td></tr>
+              <tr><td>5</td><td>2 Weariness; 3 Wounds</td></tr>
+              <tr><td>6</td><td>2 Weariness; 4 Wounds</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="muted refNote">For results above 6, continue applying 2 weariness total and add an additional wound for each number higher than 6 (e.g., 11 = 2 weariness and 9 wounds).</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="muted">Quick Reference — generated from Rules Rough 0.2.</span>
+  </footer>
+</body>
+</html>
