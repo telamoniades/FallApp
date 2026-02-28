@@ -48,6 +48,15 @@ body {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.headerLink {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
 }
 
 .control {
@@ -73,6 +82,10 @@ select {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.layout--single {
+  grid-template-columns: 1fr;
+}
+
 @media (max-width: 1200px) {
   .layout { grid-template-columns: 1fr 1fr; }
 }
@@ -93,6 +106,10 @@ select {
 .panel__header {
   padding: 14px 14px 10px;
   border-bottom: 1px solid var(--border);
+}
+
+.panel__body {
+  padding: 12px 14px 14px;
 }
 
 .panel__header h2 {
@@ -200,6 +217,38 @@ select {
 
 .footer {
   padding: 0 18px 18px;
+}
+
+/* Quick Reference tables */
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.refTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.refTable th,
+.refTable td {
+  text-align: left;
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  font-size: 13px;
+}
+
+.refTable thead th {
+  color: var(--muted);
+  font-weight: 600;
+  background: rgba(0,0,0,0.12);
+}
+
+.refNote {
+  margin-top: 10px;
 }
 
 
