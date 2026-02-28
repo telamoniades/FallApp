@@ -48,15 +48,6 @@ body {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  align-items: flex-end;
-}
-
-.headerLink {
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
 }
 
 .control {
@@ -82,10 +73,6 @@ select {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.layout--single {
-  grid-template-columns: 1fr;
-}
-
 @media (max-width: 1200px) {
   .layout { grid-template-columns: 1fr 1fr; }
 }
@@ -106,10 +93,6 @@ select {
 .panel__header {
   padding: 14px 14px 10px;
   border-bottom: 1px solid var(--border);
-}
-
-.panel__body {
-  padding: 12px 14px 14px;
 }
 
 .panel__header h2 {
@@ -219,38 +202,6 @@ select {
   padding: 0 18px 18px;
 }
 
-/* Quick Reference tables */
-.tableWrap {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.refTable {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 560px;
-}
-
-.refTable th,
-.refTable td {
-  text-align: left;
-  padding: 10px 10px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-  font-size: 13px;
-}
-
-.refTable thead th {
-  color: var(--muted);
-  font-weight: 600;
-  background: rgba(0,0,0,0.12);
-}
-
-.refNote {
-  margin-top: 10px;
-}
-
 
 /* Profiles */
 .profiles .row { align-items: flex-start; }
@@ -282,3 +233,34 @@ select {
 .profileSectionTitle { margin: 0 0 6px; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
 .profileList { margin: 0; padding-left: 16px; }
 .profileList li { margin: 2px 0; }
+/* ===== Quick Reference tables (charts.html) ===== */
+.tableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.02);
+}
+
+.refTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px; /* keeps columns readable; wrapper provides horizontal scroll on phones */
+}
+
+.refTable th,
+.refTable td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  vertical-align: top;
+}
+
+.refTable thead th {
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  font-weight: 650;
+}
+
+@media (max-width: 768px) {
+  .refTable { min-width: 480px; }
+  .refTable th, .refTable td { padding: 0.5rem 0.6rem; }
+}
