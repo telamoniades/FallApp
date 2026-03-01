@@ -156,9 +156,11 @@
               "Resistance": "3"
             },
             "weapons": [
-              "Stand and Defend. This unit gets +1 to its resistance rolls when defending in a clash."
+              "Heavy Blades and Spears, 2", x1, p1"
             ],
-            "specialRules": []
+            "specialRules": [
+              "Stand and Defend. This unit gets +1 to its resistance rolls when defending in a clash."
+            ]
           }
         },
         {
